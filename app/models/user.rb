@@ -1,0 +1,8 @@
+username(string)
+password_digest(string)
+
+has_secure_password
+def self.authenticate(username, password)
+ user = User.where(username: username).first
+ user && user.authenticate(password)
+end
